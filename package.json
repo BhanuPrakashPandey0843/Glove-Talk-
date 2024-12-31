@@ -1,12 +1,21 @@
 {
+<<<<<<< HEAD
   "name": "beast",
+=======
+  "name": "glovetalk",
+>>>>>>> 14f55b9d273b39b2fa1f7f4fbe38f119a738095c
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
+<<<<<<< HEAD
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.1.1",
+=======
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+>>>>>>> 14f55b9d273b39b2fa1f7f4fbe38f119a738095c
     "react-scripts": "5.0.1"
   },
   "scripts": {
