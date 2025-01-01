@@ -1,14 +1,17 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        bounce: "bounce 2s infinite",
+      },
+      colors: {
+        red: {
+          500: "#FF0000", // Adjust red shade to match your design
+        },
+      },
+    },
   },
   plugins: [],
-<<<<<<< HEAD
 };
-=======
-}
->>>>>>> 14f55b9d273b39b2fa1f7f4fbe38f119a738095c
