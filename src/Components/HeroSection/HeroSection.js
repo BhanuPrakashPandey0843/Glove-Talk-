@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-black text-white min-h-screen flex items-center">
+    <section className="relative bg-black text-white min-h-[80vh] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="./hero-bg.jpg" // Replace with your hero background image
+          src="https://wallpaperaccess.com/full/113299.jpg" 
           alt="Hero Background"
           className="w-full h-full object-cover opacity-50"
         />
@@ -21,21 +21,31 @@ const HeroSection = () => {
           transition={{ duration: 1 }}
           className="max-w-3xl"
         >
-          <h1 className="text-4xl lg:text-6xl font-bold">
+          <h1 className="text-3xl lg:text-5xl font-bold">
             Championing Fighters, <br />
             <span className="text-red-600">Building Legends Worldwide.</span>
           </h1>
-          <p className="mt-6 text-lg lg:text-xl leading-relaxed">
+          <p className="mt-4 text-base lg:text-lg leading-relaxed">
             Join us on a journey to train and promote the next generation of
             boxing champions.
           </p>
           <a
             href="/"
-            className="mt-8 inline-block bg-red-600 px-6 py-3 rounded-md text-lg font-medium hover:bg-red-700 transition"
+            className="mt-6 inline-block bg-red-600 px-5 py-2 rounded-md text-base font-medium hover:bg-red-700 transition"
           >
             Get Started
           </a>
         </motion.div>
+      </div>
+
+      {/* Slanted Base */}
+      <div className="absolute bottom-0 w-full h-20 bg-black">
+        <div
+          className="w-full h-full bg-white"
+          style={{
+            clipPath: "polygon(0 100%, 100% 2%, 100% 100%)", 
+          }}
+        />
       </div>
     </section>
   );

@@ -20,9 +20,9 @@ Join our community at Beast Boxing and be part of a movement that empowers athle
             <input
               type="email"
               placeholder="📧 Your email address"
-              className="flex-grow px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-teal-400 transition duration-300"
+              className="flex-grow px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300"
             />
-            <button className="bg-teal-500 text-white px-6 py-3 rounded-r-lg hover:bg-teal-600 transition duration-300">
+            <button className="bg-red-500 text-white px-6 py-3 rounded-r-lg hover:bg-red-600 transition duration-300">
               Subscribe
             </button>
           </div>

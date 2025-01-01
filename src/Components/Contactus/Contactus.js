@@ -38,12 +38,12 @@ const Contactus = () => {
       <div className="grid lg:grid-cols-2 gap-10 p-8 mx-auto w-full shadow-xl rounded-xl text-[#333] font-[sans-serif]">
         {/* Left Section */}
         <div className="space-y-6 px-6 md:px-10">
-          <h2 className="text-lg md:text-xl font-semibold text-teal-500 tracking-wider uppercase">
+          <h2 className="text-lg md:text-xl font-semibold text-red-500 tracking-wider uppercase">
             Contact Us
           </h2>
           <h1 className="text-3xl md:text-4xl font-bold leading-tight text-gray-800">
             Got a Question? <br />
-            <span className="text-teal-500 md:text-3xl font-bold">Hit us up.</span>
+            <span className="text-red-500 md:text-3xl font-bold">Hit us up.</span>
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed">
             For any inquiries or opportunities, contact Beast Boxing to join us
@@ -107,7 +107,7 @@ const Contactus = () => {
 
         {/* Right Section - Form */}
         <div className="flex flex-col justify-center px-8 md:px-10">
-          <h2 className="text-lg md:text-xl font-semibold text-teal-500 tracking-wider uppercase">
+          <h2 className="text-lg md:text-xl font-semibold text-red-500 tracking-wider uppercase">
             Send a Message
           </h2>
           <form className="space-y-6 mt-4" onSubmit={onSubmit}>
@@ -116,7 +116,7 @@ const Contactus = () => {
               name="name"
               aria-label="Your Name"
               placeholder="Your Name"
-              className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-teal-400"
+              className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-red-400"
               required
             />
             <input
@@ -124,7 +124,7 @@ const Contactus = () => {
               name="email"
               aria-label="Your Email"
               placeholder="Your Email"
-              className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-teal-400"
+              className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-red-400"
               required
             />
             <textarea
@@ -132,12 +132,12 @@ const Contactus = () => {
               name="message"
               aria-label="Your Message"
               placeholder="Your Message"
-              className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-teal-400"
+              className="border border-gray-300 rounded-md p-4 w-full focus:outline-none focus:ring-2 focus:ring-red-400"
               required
             />
             <button
               type="submit"
-              className="bg-teal-500 text-white font-semibold rounded-md py-2 hover:bg-teal-600 transition duration-300 w-full"
+              className="bg-red-500 text-white font-semibold rounded-md py-2 hover:bg-red-600 transition duration-300 w-full"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Sending..." : "Send Message"}

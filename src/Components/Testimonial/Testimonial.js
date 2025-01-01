@@ -46,7 +46,7 @@ const Testimonial = () => {
         Testimonials
       </h2>
       <h1 className="text-3xl md:text-5xl text-center font-bold mb-6">
-        Here’s what past <span className="text-teal-500">students</span> have to say.
+        Here’s what past <span className="text-red-500">students</span> have to say.
       </h1>
 
       <div className="relative flex justify-center items-center">
@@ -64,13 +64,13 @@ const Testimonial = () => {
         {/* Testimonial Card */}
         <div className="bg-white shadow-lg rounded-lg p-6 md:p-8 flex flex-col justify-between items-center text-center transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl h-72 md:h-80">
           <img
-            className="w-20 h-20 rounded-full border-4 border-teal-500 shadow-lg mb-4"
+            className="w-20 h-20 rounded-full border-4 border-red-500 shadow-lg mb-4"
             src={testimonials[currentIndex].image}
             alt={`${testimonials[currentIndex].name}'s profile`}
           />
           <p className="text-gray-700 mb-4 flex-grow text-lg md:text-xl">{testimonials[currentIndex].text}</p>
           <h3 className="font-semibold text-lg text-gray-800">{testimonials[currentIndex].name}</h3>
-          <span className="text-teal-500">{testimonials[currentIndex].school}</span>
+          <span className="text-red-500">{testimonials[currentIndex].school}</span>
         </div>
 
         {/* Right Arrow */}
