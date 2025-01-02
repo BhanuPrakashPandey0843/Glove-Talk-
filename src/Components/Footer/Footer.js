@@ -7,7 +7,7 @@ const Footer = () => {
       <div
         className="absolute top-0 left-0 w-full h-32 bg-black"
         style={{
-          clipPath: "polygon(0 0, 600% 0, 600% 80%, 0% 600%)", 
+          clipPath: "polygon(0 100%, 100% 2%, 100% 100%)", 
         }}
       ></div>
 

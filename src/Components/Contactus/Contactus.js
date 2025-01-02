@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Contactus = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -35,9 +41,12 @@ const Contactus = () => {
 
   return (
     <div className="contactus-container relative z-10 bg-white">
-      <div className="grid lg:grid-cols-2 gap-10 p-8 mx-auto w-full shadow-xl rounded-xl text-[#333] font-[sans-serif]">
+      <div
+        className="grid lg:grid-cols-2 gap-10 p-8 mx-auto w-full shadow-xl rounded-xl text-[#333] font-[sans-serif]"
+        data-aos="fade-up"
+      >
         {/* Left Section */}
-        <div className="space-y-6 px-6 md:px-10">
+        <div className="space-y-6 px-6 md:px-10" data-aos="fade-right">
           <h2 className="text-lg md:text-xl font-semibold text-red-500 tracking-wider uppercase">
             Contact Us
           </h2>
@@ -50,9 +59,8 @@ const Contactus = () => {
             in shaping the future of boxing and empowering athletes to achieve
             success both in and out of the ring.
           </p>
-
           {/* Email Section */}
-          <div className="mt-6">
+          <div className="mt-6" data-aos="zoom-in">
             <h2 className="text-xl font-semibold mb-2">Email</h2>
             <ul className="flex items-center space-x-4">
               <div className="bg-gray-100 h-12 w-12 rounded-full flex items-center justify-center">
@@ -76,9 +84,8 @@ const Contactus = () => {
               </a>
             </ul>
           </div>
-
           {/* Social Media Section */}
-          <div className="mt-6">
+          <div className="mt-6" data-aos="zoom-in-up">
             <h2 className="text-xl font-semibold mb-2">Follow Us</h2>
             <ul className="flex space-x-4">
               <li className="bg-gray-100 h-12 w-12 rounded-full flex items-center justify-center hover:bg-gray-200">
@@ -104,9 +111,8 @@ const Contactus = () => {
             </ul>
           </div>
         </div>
-
         {/* Right Section - Form */}
-        <div className="flex flex-col justify-center px-8 md:px-10">
+        <div className="flex flex-col justify-center px-8 md:px-10" data-aos="fade-left">
           <h2 className="text-lg md:text-xl font-semibold text-red-500 tracking-wider uppercase">
             Send a Message
           </h2>

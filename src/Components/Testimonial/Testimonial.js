@@ -1,94 +1,158 @@
 import React, { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 
-const testimonials = [
-  {
-    name: "Bhanu Prakash Pandey",
-  
-    image: require("./Bhanu.jpg"),
-    text: "Beast Boxing is a true game changer in the world of boxing promotions! What sets them apart is their focus on the well-being and financial success of their athletes. It’s not just about winning fights; they take a holistic approach, offering top-notch training, sponsorship opportunities, and even financial literacy to help boxers build sustainable careers. As a fan, it's refreshing to see a company genuinely invested in the long-term success of its fighters both inside and outside the ring. Beast Boxing is paving the way for the future of the sport. Highly recommend!",
-  },
-  {
-    name: "Aman Kumar",
-    
-    image: "https://randomuser.me/api/portraits/men/31.jpg",
-    text: "I've been following Beast Boxing for a while now, and I'm really impressed with how they prioritize the development of their athletes. The training programs are elite, and the financial guidance they offer is unmatched in the industry. It's clear that Beast Boxing cares about more than just the next match – they help fighters build careers that can last well beyond their time in the ring. The only reason I didn't give five stars is that I think they could expand their reach and offer more grassroots programs to young fighters. Otherwise, fantastic company that’s changing the game!",
-  },
-  {
-    name: "Abishek",
-    
-    image: "https://randomuser.me/api/portraits/men/33.jpg",
-    text: "Beast Boxing is doing something incredible for the sport of boxing. Their commitment to developing athletes holistically—offering not only elite training but also mentorship in branding, financial planning, and career development—is exactly what the industry needs. As a boxer myself, I can truly appreciate their forward-thinking approach. They aren’t just about getting you into big matches; they’re about ensuring long-term success. I’ve seen firsthand how they’ve helped fighters become financially independent and well-rounded individuals. Beast Boxing is the future of boxing, and I can’t wait to see how they continue to innovate!",
-  },
-];
+const TeamMemberCard = ({ member }) => (
+  <div
+    className="bg-gray-900 rounded-lg shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300 relative"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+  >
+    <div className="w-full h-60 sm:h-72 lg:h-80 relative">
+      <img
+        src={member.image}
+        alt={member.name}
+        className="object-cover object-center w-full h-full group-hover:scale-105 transition-transform duration-300"
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = 'https://via.placeholder.com/300x300';
+        }}
+      />
+    </div>
+    <div className="p-6">
+      <div className="flex justify-between items-center mb-2">
+        <h3 className="text-xl font-semibold">{member.name}</h3>
+        <a 
+          href={member.linkedIn} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-transparent border border-white text-white rounded-full py-1 px-3 transition duration-300 hover:bg-red-500 hover:text-white"
+        >
+          LinkedIn
+        </a>
+      </div>
+      <p className="text-red-500 mb-2">{member.role}</p>
+      <p className="text-gray-400">{member.description}</p>
+    </div>
+  </div>
+);
 
-const Testimonial = () => {
+const TeamSection = () => {
+  const teamMembers = [
+    { 
+      name: 'Mr. Abhilash', 
+      role: 'Owner', 
+      image: 'https://th.bing.com/th/id/OIP.eXWcaYbEtO2uuexHM8sAwwHaHa?pid=ImgDet&rs=1',
+      linkedIn: 'https://www.linkedin.com/in/bhanu-prakash-pandey',
+      description: 'As the owner, Mr. Abhilash oversees the overall vision and strategy of the team, ensuring all operations are running smoothly.' 
+    },
+    { 
+      name: 'Ioana Schwalger', 
+      role: 'World PBC President', 
+      image: require('../../assets/images/image11.jpg'),  
+      linkedIn: 'https://www.linkedin.com/in/tabish-ahmad',
+      description: 'Ioana Schwalger, as the World PBC President, leads international initiatives and advocates for the team on a global scale.' 
+    },
+    { 
+      name: 'Arden Fatu', 
+      role: 'Winner National Amateur Boxing', 
+      image: require('../../assets/images/Untitled.png'),  
+      linkedIn: 'https://www.linkedin.com/in/hamza-bin-majid',
+      description: 'Arden Fatu is a champion boxer who inspires the team with his discipline and drive, pushing others to excel in their respective fields.' 
+    },
+    { 
+      name: 'John Glozier', 
+      role: 'Supervisor PCB', 
+      image: require('../../assets/images/Capture.JPG'),
+      linkedIn: 'https://www.linkedin.com/in/anant-dandotiya',
+      description: 'John Glozier supervises the team’s PCB projects, ensuring technical precision and quality in all designs and solutions.' 
+    },
+    // Additional team members...
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
+  const [visibleMembers, setVisibleMembers] = useState(1);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextTestimonial();
-    }, 5000); // Change testimonial every 5 seconds
+    AOS.init(); // Initialize AOS
+    AOS.refresh(); // Refresh AOS on component updates
 
-    return () => clearInterval(interval); // Cleanup on component unmount
+    const handleResize = () => {
+      setVisibleMembers(window.innerWidth < 640 ? 1 : 4);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Set initial value
+
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const goToPrevious = () => {
+    setCurrentIndex((currentIndex - 1 + teamMembers.length) % teamMembers.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((currentIndex + 1) % teamMembers.length);
+  };
+
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col justify-center items-center py-12">
-      <h2 className="text-lg md:text-xl text-center font-semibold text-gray-400 tracking-wider uppercase mb-2">
-        Testimonials
-      </h2>
-      <h1 className="text-3xl md:text-5xl text-center font-bold mb-6">
-        Here’s what past <span className="text-red-500">students</span> have to say.
-      </h1>
-
-      <div className="relative flex justify-center items-center">
-        {/* Left Arrow */}
-        <button
-          onClick={prevTestimonial}
-          className="absolute left-0 rounded-full p-2 bg-black text-white shadow-lg hover:bg-gray-800 transition duration-300 ease-in-out"
-          aria-label="Previous testimonial"
+    <section className="bg-black text-white py-16 px-4 lg:px-24 relative">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+        <div 
+          className="text-center sm:text-left mb-6 sm:mb-0"
+          data-aos="fade-right"
+          data-aos-duration="1000"
         >
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
-        {/* Testimonial Card */}
-        <div className="bg-white shadow-lg rounded-lg p-6 md:p-8 flex flex-col justify-between items-center text-center transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl h-72 md:h-80">
-          <img
-            className="w-20 h-20 rounded-full border-4 border-red-500 shadow-lg mb-4"
-            src={testimonials[currentIndex].image}
-            alt={`${testimonials[currentIndex].name}'s profile`}
-          />
-          <p className="text-gray-700 mb-4 flex-grow text-lg md:text-xl">{testimonials[currentIndex].text}</p>
-          <h3 className="font-semibold text-lg text-gray-800">{testimonials[currentIndex].name}</h3>
-          <span className="text-red-500">{testimonials[currentIndex].school}</span>
+          <h3 className="text-red-500 font-bold text-lg uppercase">Our Team</h3>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+            Who’s <span className="text-red-500">behind</span> all this?
+          </h2>
+          <p className="text-gray-400 max-w-lg mx-auto sm:mx-0">
+            We’re a team of university students across the country with years of tutoring experience, helping students achieve top grades.
+          </p>
         </div>
-
-        {/* Right Arrow */}
-        <button
-          onClick={nextTestimonial}
-          className="absolute right-0 rounded-full p-2 bg-black text-white shadow-lg hover:bg-gray-800 transition duration-300 ease-in-out"
-          aria-label="Next testimonial"
+        <div 
+          className="flex items-center justify-center sm:justify-start"
+          data-aos="fade-left"
+          data-aos-duration="1000"
         >
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+          <button 
+            className="p-3 border border-white rounded-full bg-red-500 hover:bg-red-400 transition duration-300"
+            onClick={() => window.location.href = '/ourteam'}
+          >
+            View All Team
+          </button>
+        </div>
       </div>
 
-      {/* Dots for Carousel */}
-      
-    </div>
+      <div className="relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {teamMembers.slice(currentIndex, currentIndex + visibleMembers).map((member, index) => (
+            <TeamMemberCard key={index} member={member} />
+          ))}
+        </div>
+
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={goToPrevious}
+            className="mx-2 p-3 border border-white rounded-full bg-transparent hover:bg-gray-800 transition duration-300"
+          >
+            &#8592;
+          </button>
+          <button
+            onClick={goToNext}
+            className="mx-2 p-3 border border-white rounded-full bg-transparent hover:bg-gray-800 transition duration-300"
+          >
+            &#8594;
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default Testimonial;
+export default TeamSection;
+
+
+
+
