@@ -3,6 +3,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/LandingPage'; 
+import ContactPage  from './Pages/ContactPage';
 import Header from './Components/Navbar/Navbar'; 
 import Footer from './Components/Footer/Footer';
 
@@ -14,6 +15,7 @@ const App = () => {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} /> 
+            <Route path="/contact" element={<ContactPage />} />
            
             
           </Routes>
