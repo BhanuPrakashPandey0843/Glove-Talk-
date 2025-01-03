@@ -49,7 +49,12 @@ const Footer = () => {
           </h2>
           <div className="flex justify-center items-center space-x-3">
             <FaEnvelope className="text-red-500 text-4xl" />
-            <span className="font-medium text-xl">aboxinglab@gmail.com</span>
+            <a
+              href="mailto:beastboxingofficial@gmail.com"
+              className="font-medium text-xl underline"
+            >
+              beastboxingofficial@gmail.com
+            </a>
           </div>
         </div>
 
@@ -95,10 +100,30 @@ const Footer = () => {
               Connect with Us
             </h3>
             <div className="flex justify-center space-x-8">
-              <FaLinkedin className="text-4xl hover:text-red-500 transition cursor-pointer" />
-              <FaInstagram className="text-4xl hover:text-red-500 transition cursor-pointer" />
-              <FaEnvelope className="text-4xl hover:text-red-500 transition cursor-pointer" />
-              <FaWhatsapp className="text-4xl hover:text-red-500 transition cursor-pointer" />
+              <a
+                href="https://www.linkedin.com/in/beast-boxing-9911aa336/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-4xl hover:text-red-500 transition cursor-pointer" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram className="text-4xl hover:text-red-500 transition cursor-pointer" />
+              </a>
+              <a href="mailto:aboxinglab@gmail.com">
+                <FaEnvelope className="text-4xl hover:text-red-500 transition cursor-pointer" />
+              </a>
+              <a
+                href="https://wa.me/917387216572"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaWhatsapp className="text-4xl hover:text-red-500 transition cursor-pointer" />
+              </a>
             </div>
           </div>
 
@@ -106,9 +131,23 @@ const Footer = () => {
           <div className="space-y-5 text-center md:text-left">
             <h3 className="font-bold text-lg uppercase text-red-500">Contact</h3>
             <p className="text-lg">
-              Email: <span className="text-red-500">aboxinglab@gmail.com</span>
+              Email:{" "}
+              <a
+                href="mailto:beastboxingofficial@gmail.com"
+                className="text-red-500 underline"
+              >
+                beastboxingofficial@gmail.com
+              </a>
             </p>
-            <p className="text-lg">Phone: +1 234 567 890</p>
+            <p className="text-lg">
+              Phone:{" "}
+              <a
+                href="tel:+917387216572"
+                className="text-red-500 underline"
+              >
+                +91 7387216572
+              </a>
+            </p>
           </div>
         </div>
 
