@@ -8,6 +8,8 @@ import GallaryPage  from './Pages/GallaryPage';
 import TeamPage  from './Pages/Ourteam';
 import CarrerPage from './Pages/CarrerPage';
 import AboutPage from './Pages/AboutPage';
+import JudgeformPage from './Pages/JudgeformPage'
+import BoxingformPage from './Pages/BoxingformPage'
 import Header from './Components/Navbar/Navbar'; 
 import Footer from './Components/Footer/Footer';
 
@@ -25,6 +27,8 @@ const App = () => {
             <Route path="/our-team" element={<TeamPage />} />
             <Route path="/career" element={<CarrerPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/boxing" element={<BoxingformPage />} />
+            <Route path="/judge" element={<JudgeformPage />} />
           </Routes>
         </main>
         <Footer />
