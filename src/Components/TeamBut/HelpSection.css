@@ -1,28 +1,27 @@
+.animate-fadeInUp {
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
 @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  @keyframes bounceSlow {
-    0%, 100% {
-      transform: translateY(-10px);
-    }
-    50% {
-      transform: translateY(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .animate-fadeInUp {
-    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.animate-bounceSlow {
+  animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .animate-bounceSlow {
-    animation: bounceSlow 3s infinite;
+  50% {
+    transform: translateY(-10px);
   }
-  
+}

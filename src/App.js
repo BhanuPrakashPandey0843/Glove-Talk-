@@ -6,6 +6,8 @@ import Home from './Pages/LandingPage';
 import ContactPage  from './Pages/ContactPage';
 import GallaryPage  from './Pages/GallaryPage';
 import TeamPage  from './Pages/Ourteam';
+import CarrerPage from './Pages/CarrerPage';
+import AboutPage from './Pages/AboutPage';
 import Header from './Components/Navbar/Navbar'; 
 import Footer from './Components/Footer/Footer';
 
@@ -17,9 +19,12 @@ const App = () => {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} /> 
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/gallary" element={<GallaryPage />} />
-            <Route path="/team" element={<TeamPage />} />
+            <Route path="/home" element={<Home />} /> 
+            <Route path="/contact-us" element={<ContactPage />} />
+            <Route path="/gallery" element={<GallaryPage />} />
+            <Route path="/our-team" element={<TeamPage />} />
+            <Route path="/career" element={<CarrerPage />} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
         </main>
         <Footer />
