@@ -4,6 +4,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/LandingPage'; 
 import ContactPage  from './Pages/ContactPage';
+import GallaryPage  from './Pages/GallaryPage';
+import TeamPage  from './Pages/Ourteam';
 import Header from './Components/Navbar/Navbar'; 
 import Footer from './Components/Footer/Footer';
 
@@ -16,8 +18,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} /> 
             <Route path="/contact" element={<ContactPage />} />
-           
-            
+            <Route path="/gallary" element={<GallaryPage />} />
+            <Route path="/team" element={<TeamPage />} />
           </Routes>
         </main>
         <Footer />

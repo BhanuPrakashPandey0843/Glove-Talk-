@@ -108,7 +108,7 @@ const Footer = () => {
                 <FaLinkedin className="text-4xl hover:text-red-500 transition cursor-pointer" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/beast_boxing_official/profilecard/?igsh=dHo1Y2lmdWs2eGph"
                 target="_blank"
                 rel="noopener noreferrer"
               >
