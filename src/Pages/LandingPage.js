@@ -9,13 +9,22 @@ import Newsletter from '../Components/Newsletter/Newsletter'
 const LandingPage = () => {
   return (
     <div>
-         <HeroSection />
-         <MyStorySection />
-         <SupportSection />
+          <HeroSection /> 
+         <MyStorySection /> 
+         <SupportSection /> 
          <Testimonial />
-         <ContactUs />
-         {/* <BlankSpace /> */}
+         <ContactUs /> 
          <Newsletter />
+      
+         
+          
+         
+        
+{/*            
+            <Testimonial />
+            <Newsletter />  */}
+           
+        
     </div>
   )
 }

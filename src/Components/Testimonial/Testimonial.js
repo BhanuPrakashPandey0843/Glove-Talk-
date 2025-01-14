@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
 
 const TeamMemberCard = ({ member }) => (
   <div
-    className="bg-gray-900 rounded-lg shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300 relative"
+    className="bg-gray-900 rounded-lg shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300 flex-shrink-0 w-72 sm:w-80 lg:w-96"
     data-aos="fade-up"
     data-aos-duration="1000"
   >
-    <div className="w-full h-60 sm:h-72 lg:h-80 relative">
+    <div className="w-full h-56 sm:h-64 lg:h-72 relative">
       <img
         src={member.image}
         alt={member.name}
@@ -21,7 +21,7 @@ const TeamMemberCard = ({ member }) => (
     </div>
     <div className="p-6">
       <div className="flex justify-between items-center mb-2">
-        <h3 className="text-xl font-semibold">{member.name}</h3>
+        <h3 className="text-lg sm:text-xl font-semibold">{member.name}</h3>
         <a 
           href={member.linkedIn} 
           target="_blank" 
@@ -31,8 +31,8 @@ const TeamMemberCard = ({ member }) => (
           LinkedIn
         </a>
       </div>
-      <p className="text-red-500 mb-2">{member.role}</p>
-      <p className="text-gray-400">{member.description}</p>
+      <p className="text-red-500 text-sm sm:text-base mb-2">{member.role}</p>
+      <p className="text-gray-400 text-sm sm:text-base">{member.description}</p>
     </div>
   </div>
 );
@@ -67,33 +67,13 @@ const TeamSection = () => {
       linkedIn: 'https://www.linkedin.com/in/anant-dandotiya',
       description: 'John Glozier supervises the team’s PCB projects, ensuring technical precision and quality in all designs and solutions.' 
     },
-    // Additional team members...
+    // Add other members here...
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleMembers, setVisibleMembers] = useState(1);
-
   useEffect(() => {
-    AOS.init(); // Initialize AOS
-    AOS.refresh(); // Refresh AOS on component updates
-
-    const handleResize = () => {
-      setVisibleMembers(window.innerWidth < 640 ? 1 : 4);
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Set initial value
-
-    return () => window.removeEventListener('resize', handleResize);
+    AOS.init();
+    AOS.refresh();
   }, []);
-
-  const goToPrevious = () => {
-    setCurrentIndex((currentIndex - 1 + teamMembers.length) % teamMembers.length);
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((currentIndex + 1) % teamMembers.length);
-  };
 
   return (
     <section className="bg-black text-white py-16 px-4 lg:px-24 relative">
@@ -111,40 +91,24 @@ const TeamSection = () => {
             We’re a team of university students across the country with years of tutoring experience, helping students achieve top grades.
           </p>
         </div>
-        <div 
-          className="flex items-center justify-center sm:justify-start"
-          data-aos="fade-left"
-          data-aos-duration="1000"
+        <button 
+          className="p-3 border border-white rounded-full bg-red-500 hover:bg-red-400 transition duration-300"
+          onClick={() => window.location.href = '/ourteam'}
         >
-          <button 
-            className="p-3 border border-white rounded-full bg-red-500 hover:bg-red-400 transition duration-300"
-            onClick={() => window.location.href = '/ourteam'}
-          >
-            View All Team
-          </button>
-        </div>
+          View All Team
+        </button>
       </div>
 
-      <div className="relative">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.slice(currentIndex, currentIndex + visibleMembers).map((member, index) => (
+      <div className="overflow-x-auto scrollbar-hide">
+        <div 
+          className="flex gap-8"
+          style={{
+            scrollSnapType: 'x mandatory',
+          }}
+        >
+          {teamMembers.map((member, index) => (
             <TeamMemberCard key={index} member={member} />
           ))}
-        </div>
-
-        <div className="flex justify-center mt-6">
-          <button
-            onClick={goToPrevious}
-            className="mx-2 p-3 border border-white rounded-full bg-transparent hover:bg-gray-800 transition duration-300"
-          >
-            &#8592;
-          </button>
-          <button
-            onClick={goToNext}
-            className="mx-2 p-3 border border-white rounded-full bg-transparent hover:bg-gray-800 transition duration-300"
-          >
-            &#8594;
-          </button>
         </div>
       </div>
     </section>
@@ -152,7 +116,3 @@ const TeamSection = () => {
 };
 
 export default TeamSection;
-
-
-
-

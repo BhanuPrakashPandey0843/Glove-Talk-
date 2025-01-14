@@ -40,9 +40,9 @@ const Contactus = () => {
   };
 
   return (
-    <div className="contactus-container relative z-10 bg-white">
+    <div className="contactus-container relative z-10 bg-white px-4 md:px-8 lg:px-16 py-10">
       <div
-        className="grid lg:grid-cols-2 gap-10 p-8 mx-auto w-full shadow-xl rounded-xl text-[#333] font-[sans-serif]"
+        className="grid lg:grid-cols-2 gap-8 md:gap-10 mx-auto max-w-6xl w-full shadow-xl rounded-xl text-[#333] font-[sans-serif]"
         data-aos="fade-up"
       >
         {/* Left Section */}
@@ -50,18 +50,18 @@ const Contactus = () => {
           <h2 className="text-lg md:text-xl font-semibold text-red-500 tracking-wider uppercase">
             Contact Us
           </h2>
-          <h1 className="text-3xl md:text-4xl font-bold leading-tight text-gray-800">
+          <h1 className="text-2xl md:text-4xl font-bold leading-tight text-gray-800">
             Got a Question? <br />
-            <span className="text-red-500 md:text-3xl font-bold">Hit us up.</span>
+            <span className="text-red-500">Hit us up.</span>
           </h1>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
             For any inquiries or opportunities, contact Beast Boxing to join us
             in shaping the future of boxing and empowering athletes to achieve
             success both in and out of the ring.
           </p>
           {/* Email Section */}
           <div className="mt-6" data-aos="zoom-in">
-            <h2 className="text-xl font-semibold mb-2">Email</h2>
+            <h2 className="text-lg md:text-xl font-semibold mb-2">Email</h2>
             <ul className="flex items-center space-x-4">
               <div className="bg-gray-100 h-12 w-12 rounded-full flex items-center justify-center">
                 <svg
@@ -86,7 +86,7 @@ const Contactus = () => {
           </div>
           {/* Social Media Section */}
           <div className="mt-6" data-aos="zoom-in-up">
-            <h2 className="text-xl font-semibold mb-2">Follow Us</h2>
+            <h2 className="text-lg md:text-xl font-semibold mb-2">Follow Us</h2>
             <ul className="flex space-x-4">
               <li className="bg-gray-100 h-12 w-12 rounded-full flex items-center justify-center hover:bg-gray-200">
                 <a
@@ -112,7 +112,10 @@ const Contactus = () => {
           </div>
         </div>
         {/* Right Section - Form */}
-        <div className="flex flex-col justify-center px-8 md:px-10" data-aos="fade-left">
+        <div
+          className="flex flex-col justify-center px-6 md:px-10"
+          data-aos="fade-left"
+        >
           <h2 className="text-lg md:text-xl font-semibold text-red-500 tracking-wider uppercase">
             Send a Message
           </h2>
