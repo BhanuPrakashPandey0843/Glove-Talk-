@@ -1,77 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import newsletter from './newsletter.png';
+import React from 'react';
+import { motion } from 'framer-motion';
 
-function Newsletter() {
-  const [email, setEmail] = useState('');
-  const [subscriptionStatus, setSubscriptionStatus] = useState(null);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration in ms
-      easing: 'ease-in-out', // Easing function
-      once: true, // Only animate once
-    });
-  }, []);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    // Add your subscription logic here
-    setSubscriptionStatus('Subscribed successfully!');
+const Newsletter = () => {
+  // Define the animation variants
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-green-100">
-      <div
-        className="w-full sm:w-96 md:w-1/2 lg:w-1/3 xl:w-1/4 h-auto flex flex-col justify-center items-center px-8 text-center rounded-2xl shadow-xl transition-transform transform hover:scale-105"
-        data-aos="fade-up"
+    <section>
+      {/* <!--Container --> */}
+      {/* <!-- Component --> */}
+      <motion.div
+        className="bg-white p-8 text-center sm:p-10 md:p-16"
+        initial="hidden"
+        whileInView="visible"
+        variants={variants}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }} // Animation will only trigger once when in view
       >
-        <div className="flex flex-col items-center">
-          <img
-            src={newsletter}
-            alt="Email Icon"
-            className="w-32 h-32 mb-6 transition-transform transform hover:scale-110"
-            data-aos="zoom-in"
+        {/* <!-- Title --> */}
+        <h2 className="mb-4 text-3xl font-bold md:text-5xl text-[#000] ">
+          Join the <span style={{ color: 'red' }}>Beast Boxing</span> Community
+        </h2>
+        <p className="mx-auto mb-6 max-w-2xl text-[#647084] md:mb-10">
+          Step into the ring of camaraderie and strength—join the Beast Boxing Community, where every punch thrown is a testament to resilience, and every member is a champion in the making.
+        </p>
+        {/* <!-- Form --> */}
+        <form name="email-form" method="get" className="relative mx-auto mb-4 flex w-full max-w-2xl flex-col items-start justify-center sm:flex-row">
+          <input
+            type="email"
+            className="mb-3 mr-6 block h-9 w-full bg-white px-6 py-7 text-sm text-[#333333] focus:border-[#000]"
+            placeholder="Enter your email"
+            required
           />
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4"
-            data-aos="fade-right"
-          >
-            Join Our Community!
-          </h2>
-          <p
-            className="text-gray-700 mb-8 text-base sm:text-lg lg:text-xl leading-relaxed"
-            data-aos="fade-left"
-          >
-            Join our community at Beast Boxing Community.
-          </p>
-          <form onSubmit={handleSubscribe} className="w-full">
-            <div
-              className="w-full max-w-md flex flex-col sm:flex-row mx-auto"
-              data-aos="flip-up"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                className="flex-grow px-4 py-3 border border-gray-300 rounded-lg sm:rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300 mb-4 sm:mb-0"
-              />
-              <button
-                type="submit"
-                className="bg-red-500 text-white px-6 py-3 rounded-lg sm:rounded-r-lg hover:bg-red-600 transition duration-300"
-              >
-                Subscribe
-              </button>
-            </div>
-            {subscriptionStatus && (
-              <p className="text-green-500 mt-4">{subscriptionStatus}</p>
-            )}
-          </form>
-        </div>
-      </div>
-    </div>
+          <input
+            type="submit"
+            value="Subscribe"
+            className="inline-block w-full cursor-pointer bg-[#000] px-6 py-3 text-center font-semibold text-white transition [box-shadow:rgb(171,_196,_245)_-8px_8px] hover:[box-shadow:rgb(171,_196,_245)_0px_0px] sm:w-28"
+          />
+        </form>
+      </motion.div>
+    </section>
   );
 }
 

@@ -14,7 +14,7 @@ const LandingPage = () => {
          <SupportSection /> 
          <Testimonial />
          <ContactUs /> 
-         <Newsletter />
+        <Newsletter /> 
       
          
           
