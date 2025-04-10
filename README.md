@@ -101,5 +101,5 @@ To get started with GloveTalk, follow these steps:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/yourusername/gloveTalk.git
+   git clone https://github.com/BhanuPrakashPandey0843/Glove-Talk-.git
 >>>>>>> 14f55b9d273b39b2fa1f7f4fbe38f119a738095c
